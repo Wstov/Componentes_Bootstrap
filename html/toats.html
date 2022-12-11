@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+
+    <title>Perro</title>
+</head>
+
+<body>
+    <main>
+        <button type="button" class="btn btn-primary" id="liveToastBtn">Mostrar el toast en vivo</button>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded me-2" alt="...">
+                    <strong class="me-auto">Bootstrap</strong>
+                    <small>Hace 11 minutos</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    ¡Hola Mundo! Este es un mensaje de toast.
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        var toastElList = Array.prototype.slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, option)
+        })
+    </script>
+    <script>
+
+        var toastTrigger = document.getElementById('liveToastBtn')
+        var toastLiveExample = document.getElementById('liveToast')
+        if (toastTrigger) {
+            toastTrigger.addEventListener('click', function () {
+                var toast = new bootstrap.Toast(toastLiveExample)
+
+                toast.show()
+            })
+        }
+    </script>
+
+</body>
+
+
+</html>
